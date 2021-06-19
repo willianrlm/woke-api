@@ -2,6 +2,7 @@ package com.woke.solucao.service;
 
 import com.woke.solucao.model.User;
 import com.woke.solucao.repository.UserRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -10,16 +11,19 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class UserServiceImpl extends ServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     private static final String userFailAuth = "Id passado por parâmetro não corresponde ao usuário logado";
 
-    public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    public Boolean validateUser(User user) {
 
-    private Boolean validateUser(User user) {
+        //Test validation
+        if(user == null){
+            return false;
+        }
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         if(!user.getLogin().equals(currentPrincipalName)){
