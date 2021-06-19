@@ -1,4 +1,10 @@
 # woke-api
+Para executar:
+
+    [projeto] mvn package
+    [projeto] java -jar .\target\solucao-0.1.jar
+    (Rodando na porta 80)
+
 Dependências :
 
     Spring Data JPA
@@ -10,12 +16,6 @@ Dependências :
     JWT
     Jakarta Validation
     Lombok
-    
-Para executar:
-
-    [projeto] mvn package
-    [projeto] java -jar .\target\solucao-0.1.jar
-    (Rodando na porta 80)
 
 Arquitetura:
     
