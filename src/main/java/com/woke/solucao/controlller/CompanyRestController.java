@@ -2,7 +2,10 @@ package com.woke.solucao.controlller;
 
 import com.woke.solucao.model.Company;
 import com.woke.solucao.service.CompanyService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;

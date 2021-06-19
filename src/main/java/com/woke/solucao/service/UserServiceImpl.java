@@ -7,9 +7,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
 @Service
 @AllArgsConstructor
 public class UserServiceImpl extends ServiceImpl implements UserService {
@@ -35,14 +32,6 @@ public class UserServiceImpl extends ServiceImpl implements UserService {
             user.setPassword(u.getPassword());
         }
         return true;
-    }
-
-    public List<User> findAll() {
-        return userRepository.findAll();
-    }
-
-    public Optional<User> findById(Long id) {
-        return userRepository.findById(id);
     }
 
     public User save(User user) {

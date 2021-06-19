@@ -2,6 +2,8 @@ package com.woke.solucao.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
@@ -11,6 +13,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter @Setter
 @Entity
 public class Person {
     @Id
@@ -43,46 +46,6 @@ public class Person {
         this.users.add(new User(login, password, this));
         this.contacts = new HashSet<>();
         this.contacts.add(contact);
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
-
-    public Set<Contact> getContacts() {
-        return contacts;
-    }
-
-    public void setContacts(Set<Contact> contacts) {
-        this.contacts = contacts;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
     }
 
     @Override

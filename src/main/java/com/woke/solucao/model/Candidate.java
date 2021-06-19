@@ -2,11 +2,14 @@ package com.woke.solucao.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
+@Getter @Setter
 @Entity
 public class Candidate {
     @Id
@@ -39,55 +42,12 @@ public class Candidate {
         this.company = company;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getDateApplication() {
-        return dateApplication;
-    }
-
-    public void setDateApplication(Date dateApplication) {
-        this.dateApplication = dateApplication;
-    }
-
-    public OpinionType getOpinion() {
-        return opinion;
-    }
-
-    public void setOpinion(OpinionType opinion) {
-        this.opinion = opinion;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
-    }
-
     public enum OpinionType {
         POSITIVE("POSITIVE"),
         NEGATIVE("NEGATIVE"),
         NEUTRAL("NEUTRAL");
 
-        private final String name;
-
         OpinionType(String name) {
-            this.name = name;
         }
     }
 

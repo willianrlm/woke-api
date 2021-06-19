@@ -3,7 +3,6 @@ package com.woke.solucao.service;
 import com.woke.solucao.model.Candidate;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface CandidateService {
     List<Candidate> findAll();

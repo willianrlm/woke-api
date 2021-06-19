@@ -1,6 +1,8 @@
 package com.woke.solucao.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -8,6 +10,7 @@ import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter @Setter
 @Entity
 public class Company {
     @Id
@@ -46,54 +49,6 @@ public class Company {
         this.description = description;
         this.users = new HashSet<>();
         users.add(user);
-    }
-
-    public Candidate getCandidate() {
-        return candidate;
-    }
-
-    public void setCandidate(Candidate candidate) {
-        this.candidate = candidate;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Set<Candidate> getCandidates() {
-        return candidates;
-    }
-
-    public void setCandidates(Set<Candidate> candidates) {
-        this.candidates = candidates;
-    }
-
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
     }
 
     @Override

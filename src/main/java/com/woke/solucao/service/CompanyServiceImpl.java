@@ -2,7 +2,6 @@ package com.woke.solucao.service;
 
 import com.woke.solucao.model.Candidate;
 import com.woke.solucao.model.Company;
-import com.woke.solucao.repository.CandidateRepository;
 import com.woke.solucao.repository.CompanyRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +14,10 @@ public class CompanyServiceImpl extends ServiceImpl<Company> implements CompanyS
 
     private final CompanyRepository companyRepository;
     private final UserService userService;
-    private final CandidateRepository candidateRepository;
 
-    public CompanyServiceImpl(CompanyRepository companyRepository, UserService userService, CandidateRepository candidateRepository) {
+    public CompanyServiceImpl(CompanyRepository companyRepository, UserService userService) {
         this.companyRepository = companyRepository;
         this.userService = userService;
-        this.candidateRepository = candidateRepository;
     }
 
     @Override
@@ -29,12 +26,10 @@ public class CompanyServiceImpl extends ServiceImpl<Company> implements CompanyS
 
         Set<Candidate> candidates = userService.findByLogin(login).getCandidates();
 
-        companies.forEach(company -> {
-            candidates.forEach(candidate -> {
-                if(company.equals(candidate.getCompany()))
-                    company.setCandidate(candidate);
-            });
-        });
+        companies.forEach(company -> candidates.forEach(candidate -> {
+            if(company.equals(candidate.getCompany()))
+                company.setCandidate(candidate);
+        }));
 
         return companies;
     }

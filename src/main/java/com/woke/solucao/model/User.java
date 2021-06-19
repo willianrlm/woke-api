@@ -1,6 +1,8 @@
 package com.woke.solucao.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -10,6 +12,7 @@ import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Set;
 
+@Getter @Setter
 @Entity
 @Table(uniqueConstraints = {
         @UniqueConstraint(columnNames = "login")
@@ -48,46 +51,6 @@ public class User implements UserDetails {
         this.login = login;
         this.password = password;
         this.person = person;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
-    public Set<Candidate> getCandidates() {
-        return candidates;
-    }
-
-    public void setCandidates(Set<Candidate> candidates) {
-        this.candidates = candidates;
     }
 
     @Override

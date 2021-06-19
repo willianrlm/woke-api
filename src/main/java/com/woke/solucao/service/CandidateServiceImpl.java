@@ -1,12 +1,12 @@
 package com.woke.solucao.service;
 
-import com.woke.solucao.config.security.JwtTokenUtil;
 import com.woke.solucao.model.Candidate;
 import com.woke.solucao.model.Company;
 import com.woke.solucao.model.Person;
 import com.woke.solucao.model.User;
 import com.woke.solucao.repository.CandidateRepository;
 import com.woke.solucao.repository.CompanyRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -14,17 +14,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class CandidateServiceImpl extends ServiceImpl<Candidate> implements CandidateService {
 
     private final CandidateRepository candidateRepository;
     private final CompanyRepository companyRepository;
 
     private static final String userFailAuth = "Id passado por parâmetro não corresponde ao usuário logado";
-
-    public CandidateServiceImpl(CandidateRepository candidateRepository, CompanyRepository companyRepository) {
-        this.candidateRepository = candidateRepository;
-        this.companyRepository = companyRepository;
-    }
 
     public List<Candidate> finByCompany(Long id) {
         validateUserCompany(id);
